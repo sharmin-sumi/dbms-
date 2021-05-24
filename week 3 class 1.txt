@@ -1,0 +1,67 @@
+1.DDL   (need to say table)(command automatic save)
+
+Create
+Alter
+Drop
+
+
+1.DML   (need not to say table)(need to say commit to save)
+
+Insert
+Update
+Delate
+Select
+
+#queary
+
+select * from student;  *=(id,name,column name)
+select id,name from student;
+
+select * from student where name='meem';
+
+select name from student where age>18;
+
+select name,cgpa from student where depertment='CSE';
+
+select * from student where cgpa>3.80;
+
+
+#update
+
+update student set hometown='Khulna' where name='dipa';  (where id/cgpa/phone)
+
+update student set hometown='Pabna' where id=1307;
+update student set phone='01710142454' where id=1120;
+
+
+#delate
+delete from student where id=1377;
+delete from student where name='Mahmudul';
+delete from student;
+
+update student set hometown='' where id=1332;
+update student set depertment='' where depertment='cse';
+
+#Date
+desc dual;
+select * from dual;
+select sysdate from dual;
+select systimestamp from dual;
+
+create table citizen(id number(4),dob date)
+insert into citizen(id,dob)values(1352,'12-Oct-1992');
+select to_char(dob,'dd/mm/yyyy')from citizen;
+select to_char(dob,'dd-month-yyyy')from citizen;
+
+insert into citizen(id,dob)values(1245,to_date('10/12/1992','dd/mm/yyyy'));
+
+
+#Primary key
+create table student(id number(4) primary key,name varchar(15),CGPA number(3,2),Hometown varchar(15),depertment varchar(5),phone varchar(11),age number(2));
+
+create table student(id number(4) not null,name varchar(15),CGPA number(3,2),Hometown varchar(15),depertment varchar(5),phone varchar(11),age number(2),CONSTRAINT student_pk PRIMARY KEY (id));
+
+create table student(id number(4) not null,name varchar(15) not null,CGPA number(3,2),Hometown varchar(15),depertment varchar(5),phone varchar(11),age number(2),CONSTRAINT student_pk PRIMARY KEY (id,name));
+
+
+alter table student ADD CONSTRAINT student_pk PRIMARY KEY (id);
